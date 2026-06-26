@@ -1,0 +1,283 @@
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.35s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 0;
+}
+
+.navbarContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 999px;
+
+  transition: all 0.35s ease;
+}
+
+.navbar.scrolled .navbarContainer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.navbarLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+
+  font-size: 1.8rem;
+  font-weight: 800;
+
+  color: var(--primary);
+
+  user-select: none;
+}
+
+.navbarLogo svg {
+  color: var(--secondary);
+
+  transition: transform 0.35s ease;
+}
+
+.navbarLogo:hover svg {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.navbarLogo span {
+  color: var(--secondary);
+}
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.navbarMenu {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbarItem {
+  list-style: none;
+}
+
+.navbarLink {
+  position: relative;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.navbarLink:hover {
+  color: var(--secondary);
+}
+
+.navbarLink::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--secondary);
+
+  border-radius: 999px;
+
+  transition: width 0.35s ease;
+}
+
+.navbarLink:hover::after {
+  width: 100%;
+}
+
+/* =====================================================
+   CTA BUTTON
+===================================================== */
+
+.navbarButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+
+  background: var(--secondary);
+
+  color: white;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.35s ease;
+}
+
+.navbarButton:hover {
+  background: var(--secondary-light);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 18px 30px rgba(245, 158, 11, 0.35);
+}
+
+/* =====================================================
+   MOBILE BUTTON
+===================================================== */
+
+.navbarToggle {
+  display: none;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-sm);
+
+  transition: all 0.35s ease;
+}
+
+.navbarToggle:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.navbarMobile {
+  position: absolute;
+
+  top: 110%;
+
+  left: 0;
+  right: 0;
+
+  margin: auto;
+
+  width: calc(100% - 40px);
+
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 25px;
+
+  box-shadow: var(--shadow-lg);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  animation: navbarFade 0.35s ease;
+}
+
+.navbarMobile .navbarLink {
+  padding: 10px 0;
+}
+
+@keyframes navbarFade {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   ACTIVE LINK
+===================================================== */
+
+.navbarLink.active {
+  color: var(--secondary);
+}
+
+.navbarLink.active::after {
+  width: 100%;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+  .navbarMenu {
+    display: none;
+  }
+
+  .navbarButton {
+    display: none;
+  }
+
+  .navbarToggle {
+    display: flex;
+  }
+
+  .navbarContainer {
+    padding: 0 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .navbarLogo {
+    font-size: 1.5rem;
+  }
+
+  .navbarMobile {
+    width: calc(100% - 24px);
+  }
+}
