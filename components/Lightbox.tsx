@@ -6,17 +6,12 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export default function Lightbox() {
   useEffect(() => {
-    Fancybox.bind("[data-fancybox='gallery']", {
-      Toolbar: {
-        display: {
-          left: [],
-          middle: ["counter"],
-          right: ["zoom", "slideshow", "fullscreen", "close"],
-        },
-      },
-    });
+    Fancybox.bind("[data-fancybox]", {});
 
-    return () => Fancybox.destroy();
+    return () => {
+      Fancybox.unbind("[data-fancybox]");
+      Fancybox.close();
+    };
   }, []);
 
   return null;
