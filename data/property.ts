@@ -2,16 +2,16 @@ import { Property } from "@/types/property";
 
 export const property: Property = {
 	title: "Apartamento moderno con terraza",
-	city: "Cádiz",
-	address: "Centro histórico",
+	city: "Villamartin",
+	address: "Cádiz",
 
-	price: 950,
+	price: 400,
 
 	bedrooms: 3,
 
-	bathrooms: 2,
+	bathrooms: 1,
 
-	size: 110,
+	size: 103,
 
 	floor: "3ª Planta",
 

@@ -1,104 +1,75 @@
 import { property } from "@/data/property";
-
-import {
-	BedDouble,
-	Bath,
-	Ruler,
-	Euro,
-} from "lucide-react";
+import { BedDouble, Bath, Ruler, Euro } from "lucide-react";
 
 export default function PropertyInfo() {
 	return (
-		<section
-			className="relative z-20 -mt-28"
-		>
+		<section className="propertyInfo">
+
 			<div className="container">
 
-				<div
-					className="
-          bg-white
-          rounded-3xl
-          shadow-2xl
-          p-10
-          grid
-          md:grid-cols-4
-          gap-8
-        "
-				>
+				<div className="propertyGrid">
 
-					{/* Precio */}
+					<div className="propertyCard">
 
-					<div className="text-center">
+						<div className="propertyIcon">
+							<Euro size={34} />
+						</div>
 
-						<Euro
-							className="mx-auto text-[#d99a34]"
-							size={36}
-						/>
-
-						<h3 className="mt-4 text-3xl font-bold">
-
+						<h3 className="propertyValue">
 							{property.price}€
-
 						</h3>
 
-						<p>Precio mensual</p>
+						<p className="propertyLabel">
+							Precio / mes
+						</p>
 
 					</div>
 
-					{/* Habitaciones */}
+					<div className="propertyCard">
 
-					<div className="text-center">
+						<div className="propertyIcon">
+							<BedDouble size={34} />
+						</div>
 
-						<BedDouble
-							className="mx-auto text-[#d99a34]"
-							size={36}
-						/>
-
-						<h3 className="mt-4 text-3xl font-bold">
-
+						<h3 className="propertyValue">
 							{property.bedrooms}
-
 						</h3>
 
-						<p>Habitaciones</p>
+						<p className="propertyLabel">
+							Habitaciones
+						</p>
 
 					</div>
 
-					{/* Baños */}
+					<div className="propertyCard">
 
-					<div className="text-center">
+						<div className="propertyIcon">
+							<Bath size={34} />
+						</div>
 
-						<Bath
-							className="mx-auto text-[#d99a34]"
-							size={36}
-						/>
-
-						<h3 className="mt-4 text-3xl font-bold">
-
+						<h3 className="propertyValue">
 							{property.bathrooms}
-
 						</h3>
 
-						<p>Baños</p>
+						<p className="propertyLabel">
+							Baños
+						</p>
 
 					</div>
 
-					{/* Tamaño */}
+					<div className="propertyCard">
 
-					<div className="text-center">
+						<div className="propertyIcon">
+							<Ruler size={34} />
+						</div>
 
-						<Ruler
-							className="mx-auto text-[#d99a34]"
-							size={36}
-						/>
-
-						<h3 className="mt-4 text-3xl font-bold">
-
+						<h3 className="propertyValue">
 							{property.size}
-
 						</h3>
 
-						<p>Metros cuadrados</p>
+						<p className="propertyLabel">
+							Metros cuadrados
+						</p>
 
 					</div>
 
