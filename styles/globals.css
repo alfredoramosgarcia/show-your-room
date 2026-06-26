@@ -1,25 +1,20 @@
 /* ================================
-   CORE
-================================ */
-
-@import "./variables.css";
-@import "./reset.css";
-@import "./typography.css";
-@import "./utilities.css";
-@import "./buttons.css";
-@import "./animations.css";
-@import "./responsive.css";
-
-/* ================================
    COMPONENTS
 ================================ */
 
 @import "./navbar.css";
 @import "./hero.css";
-@import "./property-info.css";
 @import "./features.css";
 @import "./gallery.css";
-@import "./description.css";
-@import "./location.css";
 @import "./contact.css";
-@import "./footer.css";
+
+body {
+  background-color: #f8fafc;
+
+  background-image: radial-gradient(
+    rgba(23, 59, 99, 0.03) 1px,
+    transparent 1px
+  );
+
+  background-size: 30px 30px;
+}

@@ -1,56 +1,40 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 
 export default function Contact() {
-	const handleContact = () => {
-		const email = "investment@alfredoramos.pro";
-		const subject = "Interés en la vivienda";
-		const body = `Hola,
+  const handleContact = () => {
+    window.location.href = "mailto:investment@alfredoramos.pro";
+  };
 
-Estoy interesado en la vivienda y me gustaría recibir más información.`;
+  return (
+    <section id="contact" className="contact">
+      <div className="container">
+        <div className="contactCard">
+          <div className="contactIcon">
+            <Mail size={42} />
+          </div>
 
-		const gmailUrl =
-			`https://mail.google.com/mail/?view=cm&fs=1` +
-			`&to=${encodeURIComponent(email)}` +
-			`&su=${encodeURIComponent(subject)}` +
-			`&body=${encodeURIComponent(body)}`;
+          <span className="contactTag">CONTACTO</span>
 
-		window.open(gmailUrl, "_blank");
-	};
-	return (
-		<section id="contact" className="contact">
-			<div className="container">
-				<div className="contact-card">
-					<div className="contact-icon">
-						<Mail size={42} />
-					</div>
+          <h2 className="contactTitle">¿Te imaginas viviendo aquí?</h2>
 
-					<span className="contact-tag">
-						Contacto
-					</span>
+          <p className="contactDescription">
+            Si esta vivienda encaja con lo que estás buscando, escríbeme y
+            responderé personalmente lo antes posible con toda la información y
+            disponibilidad.
+          </p>
 
-					<h2>¿Te interesa esta vivienda?</h2>
-
-					<p className="contact-description">
-						Si quieres conocer más detalles, resolver cualquier duda o
-						concertar una visita, estaré encantado de ayudarte.
-					</p>
-
-					<button
-						type="button"
-						className="contact-button"
-						onClick={handleContact}
-					>
-						<Mail size={22} />
-						Contactar por correo
-					</button>
-
-					<p className="contact-small">
-						Responderé personalmente a tu correo lo antes posible.
-					</p>
-				</div>
-			</div>
-		</section>
-	);
+          <a
+            href="mailto:investment@alfredoramos.pro?subject=Interés%20en%20la%20vivienda"
+            className="contactButton"
+          >
+            <Mail size={22} />
+            Contactar por correo
+            <ArrowRight size={20} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }

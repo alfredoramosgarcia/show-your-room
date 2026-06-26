@@ -1,0 +1,257 @@
+/* =====================================================
+   HEADER
+===================================================== */
+
+.gallery {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 140px 20px;
+
+  background: linear-gradient(135deg, var(--primary), #214d82);
+
+  overflow: hidden;
+}
+
+.galleryHeader {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: right;
+
+  max-width: 760px;
+
+  margin: 20 auto 80px;
+}
+
+.galleryTag {
+  display: inline-block;
+
+  color: var(--secondary);
+
+  text-transform: uppercase;
+
+  letter-spacing: 4px;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.galleryTitle {
+  color: var(--primary);
+
+  margin-bottom: 25px;
+}
+
+.galleryDescription {
+  max-width: 650px;
+
+  color: var(--text-light);
+
+  font-size: 1.05rem;
+
+  line-height: 1.9;
+}
+
+/* =====================================================
+GRID
+===================================================== */
+
+.galleryGrid {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr 1fr;
+
+  grid-template-rows: 320px 320px;
+
+  gap: 20px;
+}
+
+.galleryMain {
+  grid-row: 1 / span 2;
+
+  position: relative;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.galleryItem {
+  position: relative;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+/* =====================================================
+IMAGES
+===================================================== */
+
+.galleryMain img,
+.galleryItem img {
+  object-fit: cover;
+
+  transition: 0.8s;
+}
+
+.galleryMain:hover img,
+.galleryItem:hover img {
+  transform: scale(1.08);
+}
+
+/* =====================================================
+OVERLAY
+===================================================== */
+
+.galleryOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+
+    rgba(0, 0, 0, 0.35),
+    transparent
+  );
+
+  opacity: 0;
+
+  transition: 0.35s;
+}
+
+.galleryMain:hover .galleryOverlay,
+.galleryItem:hover .galleryOverlay {
+  opacity: 1;
+}
+
+/* =====================================================
+HOVER ICON
+===================================================== */
+
+.galleryMain::after,
+.galleryItem::after {
+  content: "+";
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 65px;
+
+  font-weight: 300;
+
+  color: white;
+
+  opacity: 0;
+
+  transition: 0.35s;
+}
+
+.galleryMain:hover::after,
+.galleryItem:hover::after {
+  opacity: 1;
+}
+
+/* =====================================================
+BUTTON
+===================================================== */
+
+.galleryButtonContainer {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 70px;
+}
+
+.galleryButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 36px;
+
+  background: var(--secondary);
+
+  color: white;
+
+  font-weight: 700;
+
+  font-size: 1rem;
+
+  border: none;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition: 0.35s;
+}
+
+.galleryButton:hover {
+  transform: translateY(-5px);
+
+  background: var(--secondary-light);
+
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.35);
+}
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+  .galleryGrid {
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-rows: 320px 320px 320px;
+  }
+
+  .galleryMain {
+    grid-column: 1 / span 2;
+
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .galleryGrid {
+    grid-template-columns: 1fr;
+
+    grid-template-rows: repeat(5, 260px);
+  }
+
+  .galleryMain {
+    grid-column: auto;
+  }
+
+  .galleryButton {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
